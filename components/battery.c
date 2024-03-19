@@ -73,7 +73,7 @@
 			if (!strcmp(map[i].state, state))
 				break;
 
-		return (i == LEN(map)) ? "?" : bprintf("| BAT:%c", map[i].symbol);
+		return (i == LEN(map)) ? "?" : bprintf("| BAT:%s", map[i].symbol);
 	}
 
 	const char *
