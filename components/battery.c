@@ -106,7 +106,7 @@
 			h = timeleft;
 			m = (timeleft - (double)h) * 60;
 
-			return bprintf("%juh %jum ", h, m);
+			return bprintf("%2juh %2jum ", h, m);
 		}
 
 		return "";
