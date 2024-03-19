@@ -73,7 +73,6 @@ static const struct arg args[] = {
     {wifi_perc, "/%3s%% ", "wlo1"},
     {run_command, "| VOL:%3s%% ", "if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"X\"; else wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}'; fi"},
     {datetime, "| %s ", "%F %T"},
-    {battery_state, "%s", "BAT0"},
     {battery_perc, "%s", "BAT0"},
     {battery_remaining, "%s", "BAT0"},
 };

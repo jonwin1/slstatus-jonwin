@@ -46,7 +46,7 @@
 		if (pscanf(path, "%d", &cap_perc) != 1)
 			return NULL;
 
-		return bprintf("%d%%/", cap_perc);
+		return bprintf("| BAT:%3d%%/", cap_perc);
 	}
 
 	const char *
@@ -73,7 +73,7 @@
 			if (!strcmp(map[i].state, state))
 				break;
 
-		return (i == LEN(map)) ? "?" : bprintf("| BAT:%s", map[i].symbol);
+		return (i == LEN(map)) ? "?" : map[i].symbol;
 	}
 
 	const char *
@@ -109,7 +109,7 @@
 			return bprintf("%2juh %2jum ", h, m);
 		}
 
-		return "";
+		return "Charging";
 	}
 #elif defined(__OpenBSD__)
 	#include <fcntl.h>
