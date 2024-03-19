@@ -65,6 +65,14 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
     /* function format          argument */
+    {cpu_perc, "| CPU:%3s%%", NULL},
+    {temp, "/%3s°C ", "/sys/class/thermal/thermal_zone0/temp"},
+    {load_avg, "| LOAD: %s ", NULL},
+    {ram_perc, "| RAM:%3s%%", NULL},
+    {swap_perc, "/%3s%% ", NULL},
+    {disk_free, "| DISK FREE: %s ", "/"},
+    {wifi_essid, "| WIFI: %s", "wlo1"},
+    {wifi_perc, "/%3s%% ", "wlo1"},
     {run_command, "| VOL:%3s%% ", "if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"X\"; else wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}'; fi"},
     {battery_state, "%s", "BAT0"},
     {battery_perc, "%s", "BAT0"},
