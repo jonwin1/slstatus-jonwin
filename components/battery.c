@@ -46,7 +46,7 @@
 		if (pscanf(path, "%d", &cap_perc) != 1)
 			return NULL;
 
-		return bprintf("%d", cap_perc);
+		return bprintf("%d%%/", cap_perc);
 	}
 
 	const char *
@@ -73,7 +73,7 @@
 			if (!strcmp(map[i].state, state))
 				break;
 
-		return (i == LEN(map)) ? "?" : map[i].symbol;
+		return (i == LEN(map)) ? "?" : bprintf("| BAT:%c", map[i].symbol);
 	}
 
 	const char *
@@ -106,7 +106,7 @@
 			h = timeleft;
 			m = (timeleft - (double)h) * 60;
 
-			return bprintf("%juh %jum", h, m);
+			return bprintf("%juh %jum ", h, m);
 		}
 
 		return "";
