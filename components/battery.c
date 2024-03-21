@@ -20,6 +20,22 @@
 	#define POWER_SUPPLY_CURRENT  "/sys/class/power_supply/%s/current_now"
 	#define POWER_SUPPLY_POWER    "/sys/class/power_supply/%s/power_now"
 
+    #define NUM_VALUES 30
+    double values[NUM_VALUES] = {0};
+    int i = 0;
+
+    double
+    moving_avg(double new) {
+        values[i] = new;
+        i = (i + 1) % NUM_VALUES;
+
+        float sum = 0;
+        for (int j = 0; j < NUM_VALUES; j++) {
+            sum += values[j];
+        }
+        return sum / NUM_VALUES;
+    }
+
 	static const char *
 	pick(const char *bat, const char *f1, const char *f2, char *path,
 	     size_t length)
@@ -80,7 +96,7 @@
 	battery_remaining(const char *bat)
 	{
 		uintmax_t charge_now, current_now, m, h;
-		double timeleft;
+        double timeleft;
 		char path[PATH_MAX], state[12];
 
 		if (esnprintf(path, sizeof(path), POWER_SUPPLY_STATUS, bat) < 0)
@@ -102,7 +118,7 @@
 			if (current_now == 0)
 				return NULL;
 
-			timeleft = (double)charge_now / (double)current_now;
+			timeleft = moving_avg((double)charge_now / (double)current_now);
 			h = timeleft;
 			m = (timeleft - (double)h) * 60;
 
