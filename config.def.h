@@ -71,7 +71,7 @@ static const struct arg args[] = {
     {disk_free, "| FREE: %s ", "/"},
     {wifi_essid, "| WIFI: %s", "wlo1"},
     {wifi_perc, "/%3s%% ", "wlo1"},
-    {run_command, "| VOL:%3s%% ", "if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"X\"; else wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}'; fi"},
+    {run_command, "| VOL:%3s%% ", "if /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"X\"; else /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | /run/current-system/sw/bin/awk '{print $2 * 100}'; fi"},
     {datetime, "| %s ", "%F %T"},
     {battery_perc, "%s", "BAT0"},
     {battery_remaining, "%s", "BAT0"},
