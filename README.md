@@ -21,7 +21,7 @@ only issuing the minimum of system calls required.
 - CPU usage/temperature
 - RAM usage
 - Free disk space
-- WiFi ESSID/signal strength
+- WiFi strength icon & ESSID
 - Volume
 - Date and time (YYYY-MM-DD hh:mm:ss)
 - Battery percentage/time left (if battery exists)
