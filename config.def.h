@@ -67,7 +67,7 @@ static const struct arg args[] = {
     /* function format          argument */
     {cpu_perc, "| %3s%%", NULL},
     {temp, "/%3s ", "/sys/class/thermal/thermal_zone0/temp"},
-    {ram_perc, "| \uefc5%3s%% ", NULL},
+    {ram_perc, "| %3s%% ", NULL},
     {disk_free, "| 󱁋 %s ", "/"},
     {wifi_essid, "| 󰤨 %s", "wlo1"},
     {wifi_perc, "/%3s%% ", "wlo1"},
