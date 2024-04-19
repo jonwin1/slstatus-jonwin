@@ -65,13 +65,13 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
     /* function format          argument */
-    {cpu_perc, "| CPU:%3s%%", NULL},
-    {temp, "/%3s°C ", "/sys/class/thermal/thermal_zone0/temp"},
-    {ram_perc, "| RAM:%3s%% ", NULL},
-    {disk_free, "| FREE: %s ", "/"},
-    {wifi_essid, "| WIFI: %s", "wlo1"},
+    {cpu_perc, "| %3s%%", NULL},
+    {temp, "/%3s ", "/sys/class/thermal/thermal_zone0/temp"},
+    {ram_perc, "| %3s%% ", NULL},
+    {disk_free, "| 󱁋 %s ", "/"},
+    {wifi_essid, "| 󰤨 %s", "wlo1"},
     {wifi_perc, "/%3s%% ", "wlo1"},
-    {run_command, "| VOL:%3s%% ", "if /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"X\"; else /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | /run/current-system/sw/bin/awk '{print $2 * 100}'; fi"},
+    {run_command, "| 󰕾%3s%% ", "if /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"X\"; else /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | /run/current-system/sw/bin/awk '{print $2 * 100}'; fi"},
     {datetime, "| %s ", "%F %T"},
     {battery_perc, "%s", "BAT0"},
     {battery_remaining, "%s", "BAT0"},
