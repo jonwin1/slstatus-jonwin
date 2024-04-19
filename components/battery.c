@@ -62,7 +62,7 @@
 		if (pscanf(path, "%d", &cap_perc) != 1)
 			return NULL;
 
-		return bprintf("| BAT:%3d%%/", cap_perc);
+		return bprintf("| 󰁹%3d%%/", cap_perc);
 	}
 
 	const char *
