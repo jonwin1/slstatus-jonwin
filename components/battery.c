@@ -55,14 +55,66 @@
 	battery_perc(const char *bat)
 	{
 		int cap_perc;
-		char path[PATH_MAX];
+		char path[PATH_MAX], state[12];
 
 		if (esnprintf(path, sizeof(path), POWER_SUPPLY_CAPACITY, bat) < 0)
 			return NULL;
 		if (pscanf(path, "%d", &cap_perc) != 1)
 			return NULL;
+		if (pscanf(path, "%12[a-zA-Z ]", state) != 1)
+			return NULL;
 
-		return bprintf("| 󰁹%3d%%/", cap_perc);
+		if (strcmp(state, "Charging") == 0) {
+      switch (cap_perc) {
+        case 11 ... 20:
+          return "󰢜 ";
+        case 21 ... 30:
+          return "󰂆 ";
+        case 31 ... 40:
+          return "󰂇 ";
+        case 41 ... 50:
+          return "󰂈 ";
+        case 51 ... 60:
+          return "󰢝 ";
+        case 61 ... 70:
+          return "󰂉 ";
+        case 71 ... 80:
+          return "󰢞 ";
+        case 81 ... 90:
+          return "󰂊 ";
+        case 91 ... 95:
+          return "󰂋 ";
+        case 96 ... 100:
+          return "󰂅 ";
+        default:
+          return "󰢟 ";
+      }
+    } else {
+      switch (cap_perc) {
+        case 11 ... 20:
+          return "󰁺 ";
+        case 21 ... 30:
+          return "󰁻 ";
+        case 31 ... 40:
+          return "󰁼 ";
+        case 41 ... 50:
+          return "󰁽 ";
+        case 51 ... 60:
+          return "󰁾 ";
+        case 61 ... 70:
+          return "󰁿 ";
+        case 71 ... 80:
+          return "󰂀 ";
+        case 81 ... 90:
+          return "󰂁 ";
+        case 91 ... 95:
+          return "󰂂 ";
+        case 96 ... 100:
+          return "󰁹 ";
+        default:
+          return "󰂃 ";
+      }
+    }
 	}
 
 	const char *
