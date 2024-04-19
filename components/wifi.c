@@ -23,7 +23,7 @@
 	const char *
 	wifi_perc(const char *interface)
 	{
-		int cur;
+		int cur, perc;
 		size_t i;
 		char *p, *datastart;
 		char path[PATH_MAX];
@@ -31,19 +31,19 @@
 		FILE *fp;
 
 		if (esnprintf(path, sizeof(path), NET_OPERSTATE, interface) < 0)
-			return NULL;
+			return "󰤮";
 		if (!(fp = fopen(path, "r"))) {
 			warn("fopen '%s':", path);
-			return NULL;
+			return "󰤮";
 		}
 		p = fgets(status, 5, fp);
 		fclose(fp);
 		if (!p || strcmp(status, "up\n") != 0)
-			return NULL;
+			return "󰤮";
 
 		if (!(fp = fopen("/proc/net/wireless", "r"))) {
 			warn("fopen '/proc/net/wireless':");
-			return NULL;
+			return "󰤮";
 		}
 
 		for (i = 0; i < 3; i++)
@@ -52,17 +52,32 @@
 
 		fclose(fp);
 		if (i < 2 || !p)
-			return NULL;
+			return "󰤮";
 
 		if (!(datastart = strstr(buf, interface)))
-			return NULL;
+			return "󰤮";
 
 		datastart = (datastart+(strlen(interface)+1));
 		sscanf(datastart + 1, " %*d   %d  %*d  %*d\t\t  %*d\t   "
 		       "%*d\t\t%*d\t\t %*d\t  %*d\t\t %*d", &cur);
 
 		/* 70 is the max of /proc/net/wireless */
-		return bprintf("%d", (int)((float)cur / 70 * 100));
+    perc = (int)((float)cur / 70 * 100);
+
+    switch (perc) {
+      case 6 ... 20:
+        return "󰤯";
+      case 21 ... 40:
+        return "󰤟";
+      case 41 ... 60:
+        return "󰤢";
+      case 61 ... 80:
+        return "󰤥";
+      case 81 ... 100:
+        return "󰤨";
+      default:
+        return "󰤫";
+    }
 	}
 
 	const char *
