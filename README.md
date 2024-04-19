@@ -2,6 +2,8 @@
 
 My slstatus configuration.
 
+<img src=bar.png alt=slstatus>
+
 ## slstatus - suckless status
 
 slstatus is a small tool for providing system status information to other
