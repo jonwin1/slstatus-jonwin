@@ -1,6 +1,6 @@
 # slstatus-jonwin
 
-My slstatus configuration.
+My slstatus configuration with flake.nix.
 
 <img src=bar.png alt=slstatus>
 
@@ -17,6 +17,27 @@ only issuing the minimum of system calls required.
 - Font Awesome
 - wpctl for volume
 - Xlib header files
+
+## Installation
+
+### Most distros
+
+    make clean install
+
+### NixOS
+
+Add this repo as an input in your flake.nix:
+
+    inputs = {
+        slstatus = {
+            url = "github:jonwin1/slstatus";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+    };
+
+Then add this to your configuration.nix to install slstatus:
+
+    # TODO: 
 
 ## Current Fields
 
