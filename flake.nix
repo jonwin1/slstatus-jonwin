@@ -13,7 +13,7 @@
 
         overlays = [
           (final: prev: {
-            dwm = prev.slstatus.overrideAttrs (old: {
+            slstatus = prev.slstatus.overrideAttrs (old: {
               src = ./.;
               buildInputs = with prev; old.buildInputs ++ [];
             });
@@ -22,5 +22,14 @@
       };
     in {
       packages.default = pkgs.slstatus;
+
+      devShell = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          gnumake
+          xorg.libX11
+          xorg.libXft
+          xorg.libXinerama
+        ];
+      };
     });
 }

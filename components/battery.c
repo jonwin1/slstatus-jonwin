@@ -61,6 +61,8 @@
 			return NULL;
 		if (pscanf(path, "%d", &cap_perc) != 1)
 			return NULL;
+		if (esnprintf(path, sizeof(path), POWER_SUPPLY_STATUS, bat) < 0)
+      return NULL;
 		if (pscanf(path, "%12[a-zA-Z ]", state) != 1)
 			return NULL;
 
