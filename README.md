@@ -30,14 +30,18 @@ Add this repo as an input in your flake.nix:
 
     inputs = {
         slstatus = {
-            url = "github:jonwin1/slstatus";
+            url = "github:jonwin1/slstatus-jonwin";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
 Then add this to your configuration.nix to install slstatus:
 
-    # TODO: 
+    environment = {
+        systemPackages = with pkgs; [
+            inputs.slstatus.packages."x86_64-linux".default
+        ];
+    };
 
 ## Current Fields
 
