@@ -13,18 +13,27 @@ only issuing the minimum of system calls required.
 
 ## Requirements
 
-- Nerd Font
+- Fira Code NerdFont
 - Font Awesome
-- wpctl for volume
+- wpctl (wireplumber)
+- playerctl
 - Xlib header files
 
 ## Installation
 
 ### Most distros
 
+Install all [requirements](#requirements) and then compile and install:
+
     make clean install
 
 ### NixOS
+
+#### Test
+
+    nix run github:jonwin1/slstatus-jonwin
+
+#### Install
 
 Add this repo as an input in your flake.nix:
 
@@ -45,6 +54,7 @@ Then add this to your configuration.nix to install slstatus:
 
 ## Current Fields
 
+- Media metadata (status artist - title)
 - CPU usage/temperature
 - RAM usage
 - Free disk space

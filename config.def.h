@@ -65,6 +65,7 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
     /* function format          argument */
+    {run_command, "%s", "playerctl metadata --format \"{{ emoji(status) }} {{ artist }} - {{ trunc(title, 30) }}\" -s | awk '{print \"| \" $0 \" \"}'"},
     {cpu_perc, "| %3s%%", NULL},
     {temp, "/%3s ", "/sys/class/thermal/thermal_zone0/temp"},
     {ram_perc, "| %3s%% ", NULL},

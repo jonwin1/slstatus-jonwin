@@ -7,7 +7,7 @@
   };
 
   outputs = { self, nixpkgs, utils, ... }@inputs:
-    utils.lib.eachSystem ["x86_64-linux"] (system: let
+    utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {
         inherit system;
 
@@ -15,7 +15,7 @@
           (final: prev: {
             slstatus = prev.slstatus.overrideAttrs (old: {
               src = ./.;
-              buildInputs = with prev; old.buildInputs ++ [];
+              buildInputs = with prev; old.buildInputs ++ [wireplumber playerctl fira-code-nerdfont];
             });
           })
         ];
@@ -29,6 +29,9 @@
           xorg.libX11
           xorg.libXft
           xorg.libXinerama
+          wireplumber
+          playerctl
+          fira-code-nerdfont
         ];
       };
     });
