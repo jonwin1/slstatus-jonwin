@@ -75,5 +75,5 @@ static const struct arg args[] = {
     {wifi_perc, "| %s ", "wlo1"},
     {wifi_essid, "%s ", "wlo1"},
     {run_command, "| %s ", "if /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"󰖁\"; else /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | /run/current-system/sw/bin/awk '{print \"󰕾 \" $2 * 100 \"%\"}'; fi"},
-    {battery_perc, "| %s", "BAT0"},
+    {battery_perc, "%s", "BAT0"},
 };

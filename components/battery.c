@@ -69,52 +69,52 @@
 		if (strcmp(state, "Charging") == 0) {
       switch (cap_perc) {
         case 11 ... 20:
-          return "󰢜 ";
+          return "| 󰢜 ";
         case 21 ... 30:
-          return "󰂆 ";
+          return "| 󰂆 ";
         case 31 ... 40:
-          return "󰂇 ";
+          return "| 󰂇 ";
         case 41 ... 50:
-          return "󰂈 ";
+          return "| 󰂈 ";
         case 51 ... 60:
-          return "󰢝 ";
+          return "| 󰢝 ";
         case 61 ... 70:
-          return "󰂉 ";
+          return "| 󰂉 ";
         case 71 ... 80:
-          return "󰢞 ";
+          return "| 󰢞 ";
         case 81 ... 90:
-          return "󰂊 ";
+          return "| 󰂊 ";
         case 91 ... 95:
-          return "󰂋 ";
+          return "| 󰂋 ";
         case 96 ... 100:
-          return "󰂅 ";
+          return "| 󰂅 ";
         default:
-          return "󰢟 ";
+          return "| 󰢟 ";
       }
     } else {
       switch (cap_perc) {
         case 11 ... 20:
-          return "󰁺 ";
+          return "| 󰁺 ";
         case 21 ... 30:
-          return "󰁻 ";
+          return "| 󰁻 ";
         case 31 ... 40:
-          return "󰁼 ";
+          return "| 󰁼 ";
         case 41 ... 50:
-          return "󰁽 ";
+          return "| 󰁽 ";
         case 51 ... 60:
-          return "󰁾 ";
+          return "| 󰁾 ";
         case 61 ... 70:
-          return "󰁿 ";
+          return "| 󰁿 ";
         case 71 ... 80:
-          return "󰂀 ";
+          return "| 󰂀 ";
         case 81 ... 90:
-          return "󰂁 ";
+          return "| 󰂁 ";
         case 91 ... 95:
-          return "󰂂 ";
+          return "| 󰂂 ";
         case 96 ... 100:
-          return "󰁹 ";
+          return "| 󰁹 ";
         default:
-          return "󰂃 ";
+          return "| 󰂃 ";
       }
     }
 	}
