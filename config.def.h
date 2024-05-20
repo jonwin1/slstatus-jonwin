@@ -67,7 +67,7 @@ static const struct arg args[] = {
     /* function format          argument */
     {datetime, "%s", "%A %d %B %Y | Week %V | %T %Z %z"},
     {run_command, "%s", "/run/current-system/sw/bin/echo ';'"},
-    {run_command, "%s", "/run/current-system/sw/bin/playerctl metadata --format \"{{ emoji(status) }} {{ artist }} - {{ trunc(title, 30) }}\" -s | /run/current-system/sw/bin/awk '{print $0 \" \"}'"},
+    {run_command, "%s", "/run/current-system/sw/bin/playerctl metadata --format \"{{ emoji(status) }} {{ trunc(artist, 15) }} - {{ trunc(title, 20) }}\" -s | /run/current-system/sw/bin/awk '{print $0 \" \"}'"},
     {cpu_perc, "| %3s%%", NULL},
     {temp, "/%3s ", "/sys/class/thermal/thermal_zone0/temp"},
     {ram_perc, "| %3s%% ", NULL},
