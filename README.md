@@ -54,11 +54,11 @@ Then add this to your configuration.nix to install slstatus:
 
 ## Current Fields
 
+- Datetime
 - Media metadata (status artist - title)
 - CPU usage/temperature
 - RAM usage
 - Free disk space
 - WiFi strength icon & ESSID
 - Volume
-- Date and time (YYYY-MM-DD hh:mm:ss)
 - Battery state icon (if battery exists)

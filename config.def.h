@@ -65,7 +65,9 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
     /* function format          argument */
-    {run_command, "%s", "playerctl metadata --format \"{{ emoji(status) }} {{ artist }} - {{ trunc(title, 30) }}\" -s | awk '{print \"| \" $0 \" \"}'"},
+    {datetime, "%s", "%A %d %B %Y | Week %V | %T %Z %z"},
+    {run_command, "%s", "/run/current-system/sw/bin/echo ';'"},
+    {run_command, "%s", "/run/current-system/sw/bin/playerctl metadata --format \"{{ emoji(status) }} {{ artist }} - {{ trunc(title, 30) }}\" -s | /run/current-system/sw/bin/awk '{print $0 \" \"}'"},
     {cpu_perc, "| %3s%%", NULL},
     {temp, "/%3s ", "/sys/class/thermal/thermal_zone0/temp"},
     {ram_perc, "| %3s%% ", NULL},
@@ -73,6 +75,5 @@ static const struct arg args[] = {
     {wifi_perc, "| %s ", "wlo1"},
     {wifi_essid, "%s ", "wlo1"},
     {run_command, "| %s ", "if /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED; then echo \"󰖁\"; else /run/current-system/sw/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | /run/current-system/sw/bin/awk '{print \"󰕾 \" $2 * 100 \"%\"}'; fi"},
-    {datetime, "| %s ", "%F %T"},
     {battery_perc, "| %s", "BAT0"},
 };
