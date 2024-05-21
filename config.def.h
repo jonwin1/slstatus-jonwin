@@ -65,10 +65,10 @@ static const char unknown_str[] = "";
  */
 static const struct arg args[] = {
     /* function format          argument */
-    {datetime, "%s", "%A %d %B %Y | Week %V | %T %Z %z"},
+    {datetime, "%s", "%A %d %B | %T | Week %V %Y"},
     {run_command, "%s", "/run/current-system/sw/bin/echo ';'"},
-    {run_command, "%s", "/run/current-system/sw/bin/playerctl metadata --format \"{{ emoji(status) }} {{ trunc(artist, 15) }} - {{ trunc(title, 20) }}\" -s | /run/current-system/sw/bin/awk '{print $0 \" \"}'"},
-    {cpu_perc, "| %3s%%", NULL},
+    //{run_command, "%s", "/run/current-system/sw/bin/playerctl metadata --format \"{{ emoji(status) }} {{ trunc(artist, 15) }} - {{ trunc(title, 20) }}\" -s | /run/current-system/sw/bin/awk '{print $0 \" \"}'"},
+    {cpu_perc, "%3s%%", NULL},
     {temp, "/%3s ", "/sys/class/thermal/thermal_zone0/temp"},
     {ram_perc, "| %3s%% ", NULL},
     {disk_free, "| 󱁋 %s ", "/"},
